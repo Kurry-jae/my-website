@@ -13,9 +13,10 @@ Website for Asaase Kitchen — Sakaman, a Ghanaian restaurant inside JP Sakaman 
 | Home | `index.html` |
 | About Us | `about.html` |
 | Menu | `menu.html` |
+| Download Menu | `download.html` |
 | Contact Us | `contact.html` |
 
-Shared styling lives in `styles.css`. The downloadable PDF menu is `asaase-kitchen-menu.pdf` — every "Download Menu" button across the site links to it.
+Shared styling lives in `styles.css`. The downloadable PDF menu is `asaase-kitchen-menu.pdf` — the "Download Menu" tab and every download button across the site link to it.
 
 No build step, no dependencies — just static files.
 
@@ -31,7 +32,7 @@ Then visit `http://localhost:8000`.
 
 ## Deploying with GitHub Pages
 
-1. Push all files to the repo (keep them at the root — `index.html`, `about.html`, `menu.html`, `contact.html`, `styles.css`, `asaase-kitchen-menu.pdf`).
+1. Push all files to the repo (keep them at the root — `index.html`, `about.html`, `menu.html`, `download.html`, `contact.html`, `styles.css`, `asaase-kitchen-menu.pdf`).
 2. Go to **Settings → Pages**.
 3. Under **Source**, select the `main` branch and `/ (root)` folder → **Save**.
 4. Your site will be live at `https://<your-username>.github.io/<repo-name>/` within a minute or two.

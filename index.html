@@ -8,595 +8,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg-dark:#16241C;
-    --bg-dark-2:#1D2F23;
-    --bg-cream:#FAF3E6;
-    --bg-cream-2:#F2E8D4;
-    --green:#2F5233;
-    --green-light:#3E6B45;
-    --gold:#D9A441;
-    --gold-soft:#E7C27A;
-    --terracotta:#B5432A;
-    --terracotta-soft:#C9603F;
-    --text-dark:#1C1912;
-    --text-light:#F6EDDC;
-    --text-muted-dark:#5A5140;
-    --text-muted-light:#C9BFA6;
-    --radius:2px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg-cream);
-    color:var(--text-dark);
-    font-family:'Work Sans',sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    overflow-x:hidden;
-  }
-  h1,h2,h3,h4{
-    font-family:'Fraunces',serif;
-    font-weight:600;
-    line-height:1.05;
-    letter-spacing:-0.01em;
-  }
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-  .eyebrow{
-    font-family:'Space Mono',monospace;
-    font-size:0.72rem;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    color:var(--terracotta);
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .eyebrow::before{
-    content:'';
-    width:22px;height:2px;
-    background:var(--terracotta);
-    display:inline-block;
-  }
-  .wrap{
-    max-width:1180px;
-    margin:0 auto;
-    padding:0 32px;
-  }
-
-  /* ---------- Kente stripe divider (signature element) ---------- */
-  .kente{
-    height:10px;
-    width:100%;
-    background:repeating-linear-gradient(
-      90deg,
-      var(--gold) 0px, var(--gold) 26px,
-      var(--terracotta) 26px, var(--terracotta) 40px,
-      var(--green) 40px, var(--green) 58px,
-      var(--bg-cream) 58px, var(--bg-cream) 66px,
-      var(--terracotta) 66px, var(--terracotta) 74px,
-      var(--gold) 74px, var(--gold) 100px
-    );
-  }
-  .kente.dark{
-    background:repeating-linear-gradient(
-      90deg,
-      var(--gold) 0px, var(--gold) 26px,
-      var(--terracotta) 26px, var(--terracotta) 40px,
-      var(--gold-soft) 40px, var(--gold-soft) 58px,
-      var(--bg-dark) 58px, var(--bg-dark) 66px,
-      var(--terracotta) 66px, var(--terracotta) 74px,
-      var(--gold) 74px, var(--gold) 100px
-    );
-  }
-
-  /* ---------- Header ---------- */
-  header{
-    position:sticky;top:0;z-index:100;
-    background:var(--bg-cream);
-    border-bottom:1px solid rgba(28,25,18,0.08);
-  }
-  .nav-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:18px 32px;
-    max-width:1180px;
-    margin:0 auto;
-  }
-  .logo{
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-    font-family:'Fraunces',serif;
-    font-weight:700;
-    font-size:1.35rem;
-    color:var(--text-dark);
-  }
-  .logo span{
-    font-family:'Space Mono',monospace;
-    font-size:0.62rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--terracotta);
-    font-weight:400;
-  }
-  nav ul{
-    display:flex;
-    gap:34px;
-    list-style:none;
-  }
-  nav ul li a{
-    font-size:0.92rem;
-    font-weight:500;
-    color:var(--text-dark);
-    position:relative;
-    padding-bottom:4px;
-  }
-  nav ul li a::after{
-    content:'';
-    position:absolute;
-    left:0;bottom:0;
-    width:0;height:2px;
-    background:var(--terracotta);
-    transition:width .25s ease;
-  }
-  nav ul li a:hover::after{width:100%;}
-  .nav-actions{display:flex;align-items:center;gap:18px;}
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:12px 22px;
-    font-size:0.88rem;
-    font-weight:600;
-    border-radius:var(--radius);
-    border:1.5px solid transparent;
-    cursor:pointer;
-    transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-    white-space:nowrap;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-solid{background:var(--terracotta);color:var(--text-light);}
-  .btn-solid:hover{background:#9c3a23;}
-  .btn-outline{border-color:var(--text-dark);color:var(--text-dark);}
-  .btn-outline:hover{background:var(--text-dark);color:var(--bg-cream);}
-  .btn-outline-light{border-color:var(--text-light);color:var(--text-light);}
-  .btn-outline-light:hover{background:var(--text-light);color:var(--bg-dark);}
-  .btn-gold{background:var(--gold);color:var(--text-dark);}
-  .btn-gold:hover{background:var(--gold-soft);}
-
-  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--text-dark);}
-
-  /* ---------- Hero ---------- */
-  .hero{
-    background:var(--bg-dark);
-    color:var(--text-light);
-    position:relative;
-    padding:88px 0 0;
-    overflow:hidden;
-  }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:60px;
-    align-items:center;
-    padding-bottom:70px;
-  }
-  .rating-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    background:rgba(217,164,65,0.14);
-    border:1px solid rgba(217,164,65,0.4);
-    padding:8px 16px;
-    border-radius:40px;
-    font-family:'Space Mono',monospace;
-    font-size:0.78rem;
-    color:var(--gold-soft);
-    margin-bottom:28px;
-  }
-  .hero h1{
-    font-size:clamp(2.6rem,4.6vw,4.1rem);
-    color:var(--text-light);
-    margin-bottom:22px;
-  }
-  .hero h1 em{
-    font-style:italic;
-    color:var(--gold-soft);
-    font-weight:500;
-  }
-  .hero p.lede{
-    font-size:1.12rem;
-    color:var(--text-muted-light);
-    max-width:480px;
-    margin-bottom:36px;
-  }
-  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px;}
-  .hero-meta{
-    display:flex;
-    gap:36px;
-    flex-wrap:wrap;
-    border-top:1px solid rgba(246,237,220,0.15);
-    padding-top:26px;
-  }
-  .hero-meta div{display:flex;flex-direction:column;gap:4px;}
-  .hero-meta b{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;}
-  .hero-meta span{font-size:0.78rem;color:var(--text-muted-light);font-family:'Space Mono',monospace;letter-spacing:.03em;}
-
-  /* Hero visual: abstract plate composition, css-only */
-  .hero-plate-wrap{
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    height:440px;
-  }
-  .plate{
-    width:340px;height:340px;
-    border-radius:50%;
-    background:radial-gradient(circle at 35% 30%, #FBF6EA, #ECE1C6 72%, #DCCBA1 100%);
-    box-shadow:0 30px 60px -15px rgba(0,0,0,0.5), inset 0 0 0 10px rgba(255,255,255,0.5);
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .plate::before{
-    content:'';
-    position:absolute;
-    inset:26px;
-    border-radius:50%;
-    border:2px dashed rgba(181,67,42,0.18);
-  }
-  .food-cluster{
-    width:230px;height:230px;
-    position:relative;
-  }
-  .blob{position:absolute;border-radius:50% 45% 55% 50%/55% 50% 50% 45%;}
-  .blob.jollof{
-    width:150px;height:120px;top:10px;left:8px;
-    background:linear-gradient(135deg,#C9502E,#9C3A23);
-    box-shadow:inset 0 -8px 18px rgba(0,0,0,0.25);
-  }
-  .blob.fufu{
-    width:88px;height:88px;top:34px;right:6px;
-    background:radial-gradient(circle at 35% 30%,#FDFBF3,#EFE6CE);
-    box-shadow:inset 0 -6px 12px rgba(0,0,0,0.12);
-  }
-  .blob.leaf{
-    width:60px;height:100px;bottom:6px;left:60px;
-    background:linear-gradient(160deg,#4F7A4B,#2F5233);
-    border-radius:0 100% 0 100%;
-    transform:rotate(-18deg);
-  }
-  .blob.pepper{
-    width:34px;height:34px;bottom:16px;right:36px;
-    background:radial-gradient(circle at 35% 30%,#E86B3A,#B5432A);
-    border-radius:40% 60% 55% 45%/50% 45% 55% 50%;
-  }
-  .steam{
-    position:absolute;
-    top:-58px;left:50%;
-    width:2px;height:60px;
-    opacity:0.5;
-  }
-  .steam span{
-    position:absolute;
-    width:3px;height:40px;
-    background:linear-gradient(to top, rgba(246,237,220,0), rgba(246,237,220,0.6));
-    border-radius:4px;
-    animation:rise 3.2s ease-in-out infinite;
-  }
-  .steam span:nth-child(1){left:-14px;animation-delay:0s;}
-  .steam span:nth-child(2){left:0px;animation-delay:1s;}
-  .steam span:nth-child(3){left:14px;animation-delay:2s;}
-  @keyframes rise{
-    0%{transform:translateY(10px);opacity:0;}
-    30%{opacity:0.7;}
-    100%{transform:translateY(-40px);opacity:0;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .steam span{animation:none;opacity:0.35;}
-  }
-  .badge-stamp{
-    position:absolute;
-    bottom:-6px;right:-14px;
-    background:var(--gold);
-    color:var(--text-dark);
-    width:96px;height:96px;
-    border-radius:50%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    font-family:'Space Mono',monospace;
-    font-size:0.62rem;
-    text-align:center;
-    line-height:1.3;
-    transform:rotate(-12deg);
-    box-shadow:0 12px 24px -6px rgba(0,0,0,0.4);
-    border:2px solid var(--bg-dark);
-  }
-  .badge-stamp b{font-family:'Fraunces',serif;font-size:1.3rem;display:block;}
-
-  /* ---------- Section shells ---------- */
-  section{padding:100px 0;}
-  .section-cream{background:var(--bg-cream);}
-  .section-cream2{background:var(--bg-cream-2);}
-  .section-dark{background:var(--bg-dark);color:var(--text-light);}
-  .section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:40px;
-    margin-bottom:56px;
-    flex-wrap:wrap;
-  }
-  .section-head h2{font-size:clamp(2rem,3.4vw,2.9rem);margin-top:12px;}
-  .section-head p{max-width:380px;color:var(--text-muted-dark);font-size:0.98rem;}
-  .section-dark .section-head p{color:var(--text-muted-light);}
-
-  /* ---------- About / highlights ---------- */
-  .about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:64px;
-    align-items:start;
-  }
-  .about-grid p{color:var(--text-muted-dark);margin-bottom:18px;font-size:1.02rem;max-width:480px;}
-  .highlight-list{
-    display:flex;
-    flex-direction:column;
-    gap:0;
-  }
-  .highlight-item{
-    display:flex;
-    gap:20px;
-    padding:22px 0;
-    border-top:1px solid rgba(28,25,18,0.1);
-  }
-  .highlight-item:last-child{border-bottom:1px solid rgba(28,25,18,0.1);}
-  .highlight-num{
-    font-family:'Space Mono',monospace;
-    font-size:0.8rem;
-    color:var(--terracotta);
-    padding-top:3px;
-  }
-  .highlight-item h4{font-size:1.08rem;margin-bottom:4px;}
-  .highlight-item span{color:var(--text-muted-dark);font-size:0.9rem;}
-
-  /* ---------- Dishes ---------- */
-  .dish-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:2px;
-    background:rgba(28,25,18,0.1);
-    border:1px solid rgba(28,25,18,0.1);
-  }
-  .dish-card{
-    background:var(--bg-cream);
-    padding:38px 30px;
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    min-height:230px;
-    transition:background .25s ease;
-    position:relative;
-  }
-  .dish-card:hover{background:var(--bg-cream-2);}
-  .dish-icon{
-    width:46px;height:46px;
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .dish-icon svg{width:24px;height:24px;}
-  .dish-card h3{font-size:1.28rem;}
-  .dish-card p{color:var(--text-muted-dark);font-size:0.92rem;flex-grow:1;}
-  .dish-tag{
-    font-family:'Space Mono',monospace;
-    font-size:0.72rem;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    color:var(--terracotta);
-  }
-
-  /* ---------- Services ---------- */
-  .service-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
-  }
-  .service-card{
-    border:1.5px solid rgba(246,237,220,0.18);
-    padding:38px 30px;
-    border-radius:var(--radius);
-    transition:border-color .25s ease, transform .25s ease;
-  }
-  .service-card:hover{border-color:var(--gold);transform:translateY(-4px);}
-  .service-card .num{
-    font-family:'Space Mono',monospace;
-    color:var(--gold-soft);
-    font-size:0.8rem;
-    margin-bottom:20px;
-    display:block;
-  }
-  .service-card h3{font-size:1.4rem;margin-bottom:12px;color:var(--text-light);}
-  .service-card p{color:var(--text-muted-light);font-size:0.95rem;}
-
-  /* ---------- Reviews ---------- */
-  .review-strip{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
-  }
-  .review-card{
-    background:var(--bg-cream);
-    border:1px solid rgba(28,25,18,0.1);
-    padding:32px;
-    position:relative;
-  }
-  .review-stars{color:var(--gold);font-family:'Space Mono',monospace;font-size:0.85rem;margin-bottom:16px;letter-spacing:2px;}
-  .review-card p.quote{font-size:1.02rem;font-family:'Fraunces',serif;font-weight:400;font-style:italic;margin-bottom:20px;line-height:1.5;}
-  .review-name{font-family:'Space Mono',monospace;font-size:0.76rem;text-transform:uppercase;color:var(--text-muted-dark);letter-spacing:.05em;}
-  .review-summary{
-    display:flex;
-    align-items:center;
-    gap:24px;
-    margin-top:46px;
-    padding-top:36px;
-    border-top:1px solid rgba(28,25,18,0.1);
-    flex-wrap:wrap;
-  }
-  .review-summary .score{font-family:'Fraunces',serif;font-size:3rem;font-weight:700;}
-  .review-summary .score-sub{font-family:'Space Mono',monospace;font-size:0.8rem;color:var(--text-muted-dark);}
-  .review-note{color:var(--text-muted-dark);font-size:0.92rem;max-width:500px;}
-
-  /* ---------- Order / CTA banner ---------- */
-  .order-banner{
-    background:var(--terracotta);
-    color:var(--text-light);
-    padding:70px 0;
-  }
-  .order-banner .wrap{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:40px;
-    flex-wrap:wrap;
-  }
-  .order-banner h2{font-size:clamp(1.8rem,3vw,2.5rem);max-width:520px;color:var(--text-light);}
-  .order-banner-ctas{display:flex;gap:16px;flex-wrap:wrap;}
-
-  /* ---------- Location / Contact ---------- */
-  .contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:64px;
-  }
-  .info-block{margin-bottom:30px;}
-  .info-block .eyebrow{margin-bottom:10px;}
-  .info-block p, .info-block a.line{font-size:1.05rem;margin-bottom:2px;}
-  .info-block a.line:hover{color:var(--terracotta);}
-  .map-frame{
-    border:1px solid rgba(28,25,18,0.12);
-    background:
-      linear-gradient(135deg, rgba(47,82,51,0.08), rgba(181,67,42,0.06)),
-      repeating-linear-gradient(0deg, rgba(28,25,18,0.04) 0 1px, transparent 1px 34px),
-      repeating-linear-gradient(90deg, rgba(28,25,18,0.04) 0 1px, transparent 1px 34px);
-    min-height:360px;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .map-pin{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-  }
-  .map-pin .dot{
-    width:18px;height:18px;
-    background:var(--terracotta);
-    border-radius:50% 50% 50% 0;
-    transform:rotate(-45deg);
-    box-shadow:0 8px 18px rgba(181,67,42,0.4);
-  }
-  .map-pin span{
-    font-family:'Space Mono',monospace;
-    font-size:0.78rem;
-    color:var(--text-muted-dark);
-    text-align:center;
-    max-width:220px;
-  }
-  .hours-list{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
-  .hours-list div{display:flex;justify-content:space-between;font-size:0.95rem;max-width:280px;}
-  .hours-list span:last-child{font-family:'Space Mono',monospace;font-size:0.85rem;color:var(--text-muted-dark);}
-
-  /* ---------- Footer ---------- */
-  footer{background:var(--bg-dark);color:var(--text-muted-light);padding:60px 0 30px;}
-  .footer-grid{
-    display:grid;
-    grid-template-columns:1.4fr 1fr 1fr 1fr;
-    gap:40px;
-    margin-bottom:50px;
-  }
-  .footer-grid h4{color:var(--text-light);font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:16px;font-weight:600;}
-  .footer-grid ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-  .footer-grid ul li a{font-size:0.92rem;}
-  .footer-grid ul li a:hover{color:var(--gold-soft);}
-  .footer-logo{
-    font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--text-light);margin-bottom:14px;
-  }
-  .footer-bottom{
-    display:flex;
-    justify-content:space-between;
-    padding-top:26px;
-    border-top:1px solid rgba(246,237,220,0.12);
-    font-size:0.8rem;
-    flex-wrap:wrap;
-    gap:10px;
-  }
-
-  /* ---------- Mobile nav ---------- */
-  .mobile-menu{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:var(--bg-dark);
-    z-index:200;
-    flex-direction:column;
-    padding:32px;
-  }
-  .mobile-menu.open{display:flex;}
-  .mobile-menu-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:50px;}
-  .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:28px;}
-  .mobile-menu ul li a{font-family:'Fraunces',serif;font-size:2rem;color:var(--text-light);}
-  .mobile-menu .btn{margin-top:40px;align-self:flex-start;}
-  .close-x{background:none;border:none;color:var(--text-light);font-size:2rem;cursor:pointer;}
-
-  /* ---------- Responsive ---------- */
-  @media (max-width:980px){
-    .hero-grid{grid-template-columns:1fr;gap:50px;padding-bottom:50px;}
-    .hero-plate-wrap{height:320px;order:-1;}
-    .about-grid{grid-template-columns:1fr;}
-    .dish-grid{grid-template-columns:repeat(2,1fr);}
-    .service-grid{grid-template-columns:repeat(1,1fr);}
-    .review-strip{grid-template-columns:1fr;}
-    .contact-grid{grid-template-columns:1fr;}
-    .footer-grid{grid-template-columns:1fr 1fr;}
-    nav, .nav-actions .btn-outline{display:none;}
-    .menu-toggle{display:block;}
-  }
-  @media (max-width:600px){
-    .wrap{padding:0 20px;}
-    .dish-grid{grid-template-columns:1fr;}
-    .footer-grid{grid-template-columns:1fr;}
-    section{padding:70px 0;}
-    .order-banner .wrap{flex-direction:column;align-items:flex-start;}
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
   <div class="nav-row">
-    <a href="#top" class="logo">Asaase <span>Kitchen — Sakaman</span></a>
+    <a href="index.html" class="logo">Asaase <span>Kitchen — Sakaman</span></a>
     <nav>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#visit">Visit</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
     <div class="nav-actions">
-      <a href="tel:+233555333555" class="btn btn-outline">📞 +233 55 533 3555</a>
-      <a href="#order" class="btn btn-solid">Order Now</a>
+      <a href="asaase-kitchen-menu.pdf" download class="btn btn-outline">⬇ Download Menu</a>
+      <a href="tel:+233555333555" class="btn btn-solid">📞 Order Now</a>
       <button class="menu-toggle" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.add('open')">☰</button>
     </div>
   </div>
@@ -608,13 +37,13 @@
     <button class="close-x" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
   </div>
   <ul>
-    <li><a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a></li>
-    <li><a href="#menu" onclick="document.getElementById('mobileMenu').classList.remove('open')">Menu</a></li>
-    <li><a href="#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a></li>
-    <li><a href="#reviews" onclick="document.getElementById('mobileMenu').classList.remove('open')">Reviews</a></li>
-    <li><a href="#visit" onclick="document.getElementById('mobileMenu').classList.remove('open')">Visit</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
   </ul>
-  <a href="#order" class="btn btn-gold">Order Now</a>
+  <a href="asaase-kitchen-menu.pdf" download class="btn btn-outline-light">⬇ Download Menu</a>
+  <a href="tel:+233555333555" class="btn btn-gold">Order Now</a>
 </div>
 
 <div class="kente dark" id="top"></div>
@@ -627,8 +56,9 @@
       <h1>Real Ghanaian <em>chop</em>,<br>cooked with care in Sakaman.</h1>
       <p class="lede">Fufu, jollof, grilled tilapia and kelewele — made fresh daily and served in a clean, welcoming space inside JP Sakaman Service Station. Dine in, take away, or have it delivered, no contact needed.</p>
       <div class="hero-ctas">
-        <a href="#order" class="btn btn-gold">🥡 Order Takeaway</a>
-        <a href="#visit" class="btn btn-outline-light">Reserve a Table</a>
+        <a href="tel:+233555333555" class="btn btn-gold">🥡 Order Takeaway</a>
+        <a href="contact.html" class="btn btn-outline-light">Reserve a Table</a>
+        <a href="asaase-kitchen-menu.pdf" download class="btn btn-outline-light">⬇ Download Menu</a>
       </div>
       <div class="hero-meta">
         <div><b>4.6★</b><span>650 reviews</span></div>
@@ -652,7 +82,7 @@
 </section>
 <div class="kente"></div>
 
-<!-- ABOUT -->
+<!-- ABOUT TEASER -->
 <section class="section-cream" id="about">
   <div class="wrap">
     <div class="section-head">
@@ -664,8 +94,8 @@
     </div>
     <div class="about-grid">
       <div>
-        <p>Asaase Kitchen — Sakaman is a modern Ghanaian restaurant serving authentic local cuisine in a clean, comfortable dining room inside JP Sakaman Service Station. We keep the menu generous, the prices fair, and the kitchen consistent — which is why customers keep coming back, whether they're sitting down for lunch or picking up dinner on the way home.</p>
-        <p>We read every review. Where we've fallen short — a portion that felt small, a price that changed, a queue that ran long — we've said so honestly and worked to fix it. Good food and honest service are the two things we don't compromise on.</p>
+        <p>Asaase Kitchen — Sakaman is a modern Ghanaian restaurant serving authentic local cuisine in a clean, comfortable dining room inside JP Sakaman Service Station. We keep the menu generous, the prices fair, and the kitchen consistent — which is why customers keep coming back.</p>
+        <a href="about.html" class="btn btn-outline">Read Our Story</a>
       </div>
       <div class="highlight-list">
         <div class="highlight-item">
@@ -689,7 +119,7 @@
   </div>
 </section>
 
-<!-- MENU / DISHES -->
+<!-- MENU TEASER -->
 <section class="section-cream2" id="menu">
   <div class="wrap">
     <div class="section-head">
@@ -697,7 +127,7 @@
         <span class="eyebrow">On the menu</span>
         <h2>The dishes people<br>drive back for.</h2>
       </div>
-      <p>A short list of favourites — the full menu is longer, and changes with what's fresh.</p>
+      <p>A short list of favourites — see everything we serve on the full menu page.</p>
     </div>
   </div>
   <div class="wrap" style="padding:0;">
@@ -726,34 +156,11 @@
         <h3>Grilled Tilapia</h3>
         <p>Whole fish, grilled and lightly spiced, served with a side of pepper sauce.</p>
       </div>
-      <div class="dish-card">
-        <div class="dish-icon" style="background:rgba(217,164,65,0.18);">
-          <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="5" width="14" height="14" rx="3" stroke="#D9A441" stroke-width="1.6"/><path d="M9 9l6 6M15 9l-6 6" stroke="#D9A441" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </div>
-        <span class="dish-tag">Snack</span>
-        <h3>Kelewele</h3>
-        <p>Spiced fried plantain, cut and seasoned in-house — the perfect side or snack on its own.</p>
-      </div>
-      <div class="dish-card">
-        <div class="dish-icon" style="background:rgba(47,82,51,0.14);">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="#2F5233" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </div>
-        <span class="dish-tag">Everyday</span>
-        <h3>Traditional Meals</h3>
-        <p>A rotating line-up of home-style Ghanaian dishes, cooked fresh every day.</p>
-      </div>
-      <div class="dish-card">
-        <div class="dish-icon" style="background:rgba(181,67,42,0.14);">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.6 5.9L21 10l-4.7 4 1.3 6.9L12 17.8 6.4 20.9l1.3-6.9L3 10l6.4-1.1L12 3z" stroke="#B5432A" stroke-width="1.4" stroke-linejoin="round"/></svg>
-        </div>
-        <span class="dish-tag">And more</span>
-        <h3>Full À La Carte</h3>
-        <p>See the complete menu and current prices when you call or order online.</p>
-      </div>
     </div>
   </div>
-  <div class="wrap" style="margin-top:44px;">
-    <a href="#order" class="btn btn-solid">View Full Menu &amp; Order</a>
+  <div class="wrap" style="margin-top:44px;display:flex;gap:16px;flex-wrap:wrap;">
+    <a href="menu.html" class="btn btn-solid">View Full Menu</a>
+    <a href="asaase-kitchen-menu.pdf" download class="btn btn-outline">⬇ Download Menu (PDF)</a>
   </div>
 </section>
 
@@ -832,51 +239,7 @@
     <div class="order-banner-ctas">
       <a href="tel:+233555333555" class="btn btn-gold">📞 Call to Order</a>
       <a href="mailto:orders@asaasekitchen.com" class="btn btn-outline-light">✉️ Email an Order</a>
-    </div>
-  </div>
-</section>
-
-<!-- VISIT / CONTACT -->
-<section class="section-cream2" id="visit">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">Find us</span>
-        <h2>Inside JP Sakaman<br>Service Station.</h2>
-      </div>
-      <p>Easy to find, easy to park, open every day.</p>
-    </div>
-    <div class="contact-grid">
-      <div>
-        <div class="info-block">
-          <span class="eyebrow">Address</span>
-          <p>Inside JP Sakaman Service Station<br>Sakaman, Accra, Ghana</p>
-        </div>
-        <div class="info-block">
-          <span class="eyebrow">Phone</span>
-          <a class="line" href="tel:+233555333555">+233 55 533 3555</a>
-        </div>
-        <div class="info-block">
-          <span class="eyebrow">Email</span>
-          <a class="line" href="mailto:info@asaasekitchen.com">info@asaasekitchen.com</a><br>
-          <a class="line" href="mailto:orders@asaasekitchen.com">orders@asaasekitchen.com</a><br>
-          <a class="line" href="mailto:reservations@asaasekitchen.com">reservations@asaasekitchen.com</a>
-        </div>
-        <div class="info-block">
-          <span class="eyebrow">Hours</span>
-          <div class="hours-list">
-            <div><span>Monday – Friday</span><span>8:00 – 22:00</span></div>
-            <div><span>Saturday – Sunday</span><span>9:00 – 23:00</span></div>
-          </div>
-        </div>
-        <a href="tel:+233555333555" class="btn btn-solid">Call the Kitchen</a>
-      </div>
-      <div class="map-frame">
-        <div class="map-pin">
-          <div class="dot"></div>
-          <span>JP Sakaman Service Station, Sakaman, Accra — look for the forecourt entrance</span>
-        </div>
-      </div>
+      <a href="contact.html" class="btn btn-outline-light">Get Directions</a>
     </div>
   </div>
 </section>
@@ -893,18 +256,18 @@
       <div>
         <h4>Explore</h4>
         <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#services">Delivery &amp; Takeaway</a></li>
-          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
       <div>
-        <h4>Services</h4>
+        <h4>Order</h4>
         <ul>
-          <li><a href="#order">Online Ordering</a></li>
+          <li><a href="asaase-kitchen-menu.pdf" download>Download Menu (PDF)</a></li>
+          <li><a href="tel:+233555333555">Order by Phone</a></li>
           <li><a href="mailto:catering@asaasekitchen.com">Catering</a></li>
-          <li><a href="mailto:reservations@asaasekitchen.com">Reservations</a></li>
           <li><a href="mailto:feedback@asaasekitchen.com">Feedback</a></li>
         </ul>
       </div>

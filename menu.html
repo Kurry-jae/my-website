@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu — Asaase Kitchen | Sakaman</title>
+<meta name="description" content="Full menu for Asaase Kitchen — Sakaman: jollof, fufu, grilled tilapia, kelewele, traditional Ghanaian meals, sides and drinks. Download the PDF menu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a href="index.html" class="logo">Asaase <span>Kitchen — Sakaman</span></a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="asaase-kitchen-menu.pdf" download class="btn btn-outline">⬇ Download Menu</a>
+      <a href="tel:+233555333555" class="btn btn-solid">📞 Order Now</a>
+      <button class="menu-toggle" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.add('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <span class="logo" style="color:var(--text-light)">Asaase Kitchen</span>
+    <button class="close-x" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <a href="asaase-kitchen-menu.pdf" download class="btn btn-outline-light">⬇ Download Menu</a>
+  <a href="tel:+233555333555" class="btn btn-gold">Order Now</a>
+</div>
+
+<div class="kente dark"></div>
+
+<!-- PAGE HERO -->
+<section class="hero" style="padding-bottom:60px;">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;">
+    <div>
+      <span class="eyebrow" style="color:var(--gold-soft)">The full menu</span>
+      <h1 style="margin-top:16px;max-width:640px;">Everything we<br>cook, in one place.</h1>
+      <p class="lede" style="max-width:520px;">GH₵50–100 per person. Prices vary by dish — call +233 55 533 3555 for today's full price list.</p>
+    </div>
+    <a href="asaase-kitchen-menu.pdf" download class="btn btn-gold">⬇ Download Menu (PDF)</a>
+  </div>
+</section>
+<div class="kente"></div>
+
+<!-- SIGNATURE & CLASSICS -->
+<section class="section-cream" id="signature">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Signature &amp; classics</span>
+        <h2>The dishes people<br>drive back for.</h2>
+      </div>
+    </div>
+    <div class="dish-grid">
+      <div class="dish-card">
+        <div class="dish-icon" style="background:rgba(181,67,42,0.14);">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#B5432A" stroke-width="1.6"/><path d="M7 12h10M12 7v10" stroke="#B5432A" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <span class="dish-tag">Signature</span>
+        <h3>Jollof Rice</h3>
+        <p>Smoky, tomato-rich rice cooked low and slow — the dish Asaase is best known for.</p>
+      </div>
+      <div class="dish-card">
+        <div class="dish-icon" style="background:rgba(47,82,51,0.14);">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#2F5233" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" fill="#2F5233"/></svg>
+        </div>
+        <span class="dish-tag">Classic</span>
+        <h3>Fufu &amp; Soup</h3>
+        <p>Soft, hand-pounded fufu served with a proper soup, made fresh daily.</p>
+      </div>
+      <div class="dish-card">
+        <div class="dish-icon" style="background:rgba(217,164,65,0.18);">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 14c2-6 14-6 16 0" stroke="#B5432A" stroke-width="1.6" stroke-linecap="round"/><path d="M6 14v3M18 14v3" stroke="#B5432A" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <span class="dish-tag">Fan favourite</span>
+        <h3>Grilled Tilapia</h3>
+        <p>Whole fish, grilled and lightly spiced, served with a side of pepper sauce.</p>
+      </div>
+      <div class="dish-card">
+        <div class="dish-icon" style="background:rgba(217,164,65,0.18);">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="5" width="14" height="14" rx="3" stroke="#D9A441" stroke-width="1.6"/><path d="M9 9l6 6M15 9l-6 6" stroke="#D9A441" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <span class="dish-tag">Snack</span>
+        <h3>Kelewele</h3>
+        <p>Spiced fried plantain, cut and seasoned in-house — the perfect side or snack on its own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRADITIONAL MEALS -->
+<section class="section-cream2" id="traditional">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Traditional meals</span>
+        <h2>Home-style dishes,<br>cooked fresh daily.</h2>
+      </div>
+    </div>
+    <div class="dish-grid">
+      <div class="dish-card">
+        <div class="dish-icon" style="background:rgba(47,82,51,0.14);">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="#2F5233" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <span class="dish-tag">Everyday</span>
+        <h3>Banku &amp; Okro Stew</h3>
+        <p>Fermented corn and cassava dough, served with a rich okro stew.</p>
+      </div>
+      <div class="dish-card">
+        <div class="dish-icon" style="background:rgba(181,67,42,0.14);">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#B5432A" stroke-width="1.6"/><path d="M9 9h6v6H9z" stroke="#B5432A" stroke-width="1.4"/></svg>
+        </div>
+        <span class="dish-tag">Everyday</span>
+        <h3>Waakye</h3>
+        <p>Rice and beans cooked together, served with the usual trimmings.</p>
+      </div>
+      <div class="dish-card">
+        <div class="dish-icon" style="background:rgba(217,164,65,0.18);">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 14c2-6 14-6 16 0" stroke="#D9A441" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <span class="dish-tag">Everyday</span>
+        <h3>Light Soup</h3>
+        <p>A peppery, tomato-based soup served with your choice of meat or fish.</p>
+      </div>
+      <div class="dish-card">
+        <div class="dish-icon" style="background:rgba(47,82,51,0.14);">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#2F5233" stroke-width="1.6"/></svg>
+        </div>
+        <span class="dish-tag">Everyday</span>
+        <h3>Red Red</h3>
+        <p>Bean stew in a rich palm oil sauce, served with fried ripe plantain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIDES & DRINKS -->
+<section class="section-dark" id="sides">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow" style="color:var(--gold-soft)">Sides &amp; drinks</span>
+        <h2 style="color:var(--text-light)">Build a plate<br>your own way.</h2>
+      </div>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="num">Side</span>
+        <h3>Fried Rice</h3>
+        <p>Lightly seasoned fried rice, a popular pairing with grilled meats.</p>
+      </div>
+      <div class="service-card">
+        <span class="num">Side</span>
+        <h3>Boiled Yam</h3>
+        <p>Plain boiled yam, served alongside stews and sauces.</p>
+      </div>
+      <div class="service-card">
+        <span class="num">Side</span>
+        <h3>Shito</h3>
+        <p>Our house-made black pepper sauce — spicy, smoky, and addictive.</p>
+      </div>
+      <div class="service-card">
+        <span class="num">Drink</span>
+        <h3>Sobolo</h3>
+        <p>Chilled hibiscus drink, lightly spiced and naturally sweetened.</p>
+      </div>
+      <div class="service-card">
+        <span class="num">Drink</span>
+        <h3>Soft Drinks &amp; Water</h3>
+        <p>Bottled water and soft drinks, chilled and available on request.</p>
+      </div>
+      <div class="service-card">
+        <span class="num">More</span>
+        <h3>Catering Menu</h3>
+        <p>Planning an event? Email <a href="mailto:catering@asaasekitchen.com" style="text-decoration:underline;">catering@asaasekitchen.com</a> for group pricing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="kente dark"></div>
+
+<!-- ORDER CTA -->
+<section class="order-banner" id="order">
+  <div class="wrap">
+    <h2>Ready to order, or want the printable menu?</h2>
+    <div class="order-banner-ctas">
+      <a href="tel:+233555333555" class="btn btn-gold">📞 Call to Order</a>
+      <a href="asaase-kitchen-menu.pdf" download class="btn btn-outline-light">⬇ Download Menu (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Asaase Kitchen</div>
+        <p style="max-width:280px;font-size:0.92rem;">Authentic Ghanaian cuisine, cooked fresh daily inside JP Sakaman Service Station, Accra.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Order</h4>
+        <ul>
+          <li><a href="asaase-kitchen-menu.pdf" download>Download Menu (PDF)</a></li>
+          <li><a href="tel:+233555333555">Order by Phone</a></li>
+          <li><a href="mailto:catering@asaasekitchen.com">Catering</a></li>
+          <li><a href="mailto:feedback@asaasekitchen.com">Feedback</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+233555333555">+233 55 533 3555</a></li>
+          <li><a href="mailto:support@asaasekitchen.com">support@asaasekitchen.com</a></li>
+          <li>Sakaman, Accra, Ghana</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Asaase Kitchen — Sakaman. All rights reserved.</span>
+      <span>4.6★ from 650 Google reviews</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

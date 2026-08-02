@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Menu — Asaase Kitchen | Sakaman</title>
+<meta name="description" content="Download the full Asaase Kitchen — Sakaman menu as a PDF. Jollof, fufu, grilled tilapia, kelewele, traditional meals, sides and drinks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a href="index.html" class="logo">Asaase <span>Kitchen — Sakaman</span></a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="download.html" class="active">Download Menu</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="tel:+233555333555" class="btn btn-solid">📞 Order Now</a>
+      <button class="menu-toggle" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.add('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <span class="logo" style="color:var(--text-light)">Asaase Kitchen</span>
+    <button class="close-x" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="download.html">Download Menu</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <a href="tel:+233555333555" class="btn btn-gold">Order Now</a>
+</div>
+
+<div class="kente dark"></div>
+
+<!-- PAGE HERO -->
+<section class="hero" style="padding-bottom:60px;">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;">
+    <div>
+      <span class="eyebrow" style="color:var(--gold-soft)">Take it with you</span>
+      <h1 style="margin-top:16px;max-width:600px;">Download the<br>full menu.</h1>
+      <p class="lede" style="max-width:480px;">A printable, two-page PDF with every dish we serve — jollof, fufu, grilled tilapia, kelewele, traditional meals, sides and drinks. GH₵50–100 per person.</p>
+      <div class="hero-ctas">
+        <a href="asaase-kitchen-menu.pdf" download class="btn btn-gold">⬇ Download PDF Menu</a>
+        <a href="menu.html" class="btn btn-outline-light">View Menu Online</a>
+      </div>
+    </div>
+    <div class="hero-plate-wrap" style="height:320px;">
+      <div class="steam"><span></span><span></span><span></span></div>
+      <div class="plate" style="width:260px;height:260px;">
+        <div class="food-cluster" style="width:180px;height:180px;">
+          <div class="blob jollof"></div>
+          <div class="blob fufu"></div>
+          <div class="blob leaf"></div>
+          <div class="blob pepper"></div>
+        </div>
+        <div class="badge-stamp" style="width:78px;height:78px;">
+          <b style="font-size:1.05rem;">PDF</b>2 pages
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="kente"></div>
+
+<!-- WHAT'S INSIDE -->
+<section class="section-cream">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">What's inside</span>
+        <h2>One file, everything<br>on the menu.</h2>
+      </div>
+      <p>Handy for sharing, printing, or browsing offline.</p>
+    </div>
+    <div class="highlight-list">
+      <div class="highlight-item">
+        <span class="highlight-num">01</span>
+        <div><h4>Signature &amp; classics</h4><span>Jollof rice, fufu &amp; soup, grilled tilapia, kelewele.</span></div>
+      </div>
+      <div class="highlight-item">
+        <span class="highlight-num">02</span>
+        <div><h4>Traditional meals</h4><span>Banku &amp; okro stew, waakye, light soup, red red.</span></div>
+      </div>
+      <div class="highlight-item">
+        <span class="highlight-num">03</span>
+        <div><h4>Sides &amp; drinks</h4><span>Fried rice, boiled yam, shito, sobolo, and more.</span></div>
+      </div>
+      <div class="highlight-item">
+        <span class="highlight-num">04</span>
+        <div><h4>Contact &amp; ordering info</h4><span>Phone, address and hours, right on the page.</span></div>
+      </div>
+    </div>
+    <div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="asaase-kitchen-menu.pdf" download class="btn btn-solid">⬇ Download PDF Menu</a>
+      <a href="tel:+233555333555" class="btn btn-outline">📞 Call to Order</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="kente dark"></div>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Asaase Kitchen</div>
+        <p style="max-width:280px;font-size:0.92rem;">Authentic Ghanaian cuisine, cooked fresh daily inside JP Sakaman Service Station, Accra.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Order</h4>
+        <ul>
+          <li><a href="download.html">Download Menu (PDF)</a></li>
+          <li><a href="tel:+233555333555">Order by Phone</a></li>
+          <li><a href="mailto:catering@asaasekitchen.com">Catering</a></li>
+          <li><a href="mailto:feedback@asaasekitchen.com">Feedback</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+233555333555">+233 55 533 3555</a></li>
+          <li><a href="mailto:support@asaasekitchen.com">support@asaasekitchen.com</a></li>
+          <li>Sakaman, Accra, Ghana</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Asaase Kitchen — Sakaman. All rights reserved.</span>
+      <span>4.6★ from 650 Google reviews</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
